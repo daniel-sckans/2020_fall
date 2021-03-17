@@ -1,0 +1,135 @@
+% BEGIN
+\documentclass{article}
+
+% UNICODE
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage{oplotsymbl}
+
+% LAYOUT
+\usepackage{calc}
+\newlength{\unit}\setlength{\unit}{9.5625pt} % ONE- SIXTY-FOURTH PAGE WIDTH
+\newlength{\marginheaderl}\setlength{\marginheaderl}{0\unit}
+\newlength{\widthheader}\setlength{\widthheader}{24\unit}
+\newlength{\marginl}\setlength{\marginl}{4\unit}
+\newlength{\marginr}\setlength{\marginr}{4\unit}
+\usepackage[
+    paperwidth=612pt,  
+    paperheight=792pt, 
+    margin=\marginr, 
+    top=8\unit, 
+    left=\marginheaderl + \widthheader + \marginl, 
+    bottom=8\unit, 
+    marginparsep=\marginl, 
+    marginparwidth=\widthheader
+]{geometry}
+
+% PACKAGES
+\usepackage[overlay]{textpos}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fp}
+
+% SUPPRESS UNDERFULL BOX WARNINGS
+% \hbadness=999999
+
+% HYPERLINKS HAVE ODD FORMATTING
+\hypersetup{%
+  colorlinks=false,% HYPERLINKS WERE RED
+  linkbordercolor=red,% THEY HAD A RED BORDER
+  pdfborderstyle={/S/U/W 0}% THEY HAD A BORDER AND 1PT UNDERLINE
+}
+
+% FONTS
+\usepackage{TheanoDidot} % ROMAN
+\usepackage{Chivo} % SANS_SERIF
+\usepackage{inconsolata} % MONOSPACE
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\defaultfontsize}{\fontsize{\unit}{1\unit}\selectfont}
+
+% FORMATTING
+\linespread{1}
+\setlength\parindent{0pt}
+\reversemarginpar
+\pagenumbering{gobble}
+
+% SECTIONS
+\newcommand{\sectionskip}{\vspace{4\unit}}
+\newcommand{\makeHeader}[1]{
+    \leavevmode\marginpar{%
+        \ttfamily
+        \defaultfontsize
+        \textblockcolor{black}%
+        \begin{flushright}\leavevmode\leaders\hbox{\space»}\hfill\kern0pt\uppercase{\space#1}\end{flushright}
+    }%
+}
+
+% DOCUMENT
+\begin{document}
+    \defaultfontsize
+    \raggedright
+
+    \makeHeader{%
+        Senior Project in Film\\ 
+        \vspace{\baselineskip}
+        COMM.454\\
+        Fall 2020 | Southwestern College\\
+        Professor Evan Daniel\\
+        Evan.Daniel@SCKans.edu\\
+        \vspace{\baselineskip}
+        Office Hours M-F 12:00PM- 1:00PM\\
+    }%
+    Students will use knowledge acquired in previous courses to prepare a brief video feature indicative of their own practice.  While technical advice will be given, the focus will be on students' engagement with it, and their work towards building a self-sustaining and rigorous practice.    
+    
+    \vspace{\baselineskip}The course will offer formal and conceptual feedback and direction through discussion and critiques; readings from relevant literature; and technical guidance.  Relevant historical examples will also be examined, and students will engage in written and verbal discourse about work relevant to their practice.
+
+    \sectionskip\makeHeader{Course Catalog Listing}%
+    CPTR454/Lecture/A - Senior Project and Seminar | Credits 3.00\\
+    Student will prepare a brief video feature. Course offered on demand. Credit 3 hours.
+
+    \sectionskip\makeHeader{Course Deliverables}%
+    \vspace{-1.75\baselineskip}
+    \begin{itemize}[leftmargin=*]
+        \item Sustained formal engagement of technical hurdles towards creating a video showing a high degree of intentionality.
+            \begin{itemize}
+                \item\textit{1 hour 40 minutes in-class per week}
+                \item\textit{4 hours 40 minutes out-of-class per week}
+            \end{itemize}
+        \item Sustained engagement in conceptual discourse and analysis of related film, video, and fine art production.
+            \begin{itemize}
+                \item\textit{50 minutes in-class per week}.
+                \item\textit{2 hours 20 minutes out-of-class per week}.
+            \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+
+    \sectionskip\makeHeader{Attendance}%
+    Attendance can be in-person or through Zoom.  Attendance will be recorded, but there is no penalty for absences (including "total absence"; neither in-person nor on Zoom).  However, video recordings of classes will not be posted by default.
+
+    \vspace{\baselineskip}If a student is absent on a day an assignment is due, they are required to set up a meeting with the instructor to be held within one academic week (or five "business" days) of returning to class.  It is their responsibility to set up this meeting, to be prepared to present their work, and to allot ten minutes to discuss each assignment.  If they do not do so, they will receive a grade of 0 for the assignment.  
+    
+    \sectionskip\makeHeader{Assessment}%
+    Assignments will be assessed through dialogue between student and instructor.  Assessment criteria will be not the outcome of the assignment (whether the assignment is impressive, or works well), but on the student's demonstrated understanding of the assignment in discussion.
+
+    \vspace{\baselineskip}Each assignment will have a grade recorded between 0 to 1 (e.g. "0.5"; "0.875").  At the end of the semester, these grades will be averaged with a perfect grade of 1 and multiplied by 100 (e.g., if the student's average grade is 0.75, their final grade will be (0.75 + 1.00) / 2 * 100, or 87.5\%).  
+
+    \sectionskip\makeHeader{Ethics}%
+    This course is a space where we acknowledge and value the agency of each of our peers and the diversity of our community.  To be consistent with those values, all communication within the course --- whether in the form of spoken word, submitted assignments, online communication, or any other form --- must allow all other individuals in the course to freely participate. 
+    
+    \vspace{\baselineskip}Students whose verbal communication prevents or precludes others from being part of our community or discourse will be asked to leave the course meeting, and can be made subject to further academic discipline. Submitted work that prevents or precludes others from being part of our community or discourse will not be assessed, with no points awarded.  Note that plagiarism is detrimental to our discourse and therefore falls under this category.
+
+    \sectionskip\makeHeader{College Resources}%
+    The college offers many services to facilitate your participation in our course, including: 
+    \begin{itemize}
+        \item\href{https://www.sckans.edu/student-services/student-success-and-retention/disability-services/}{\color{blue}\bfseries Disability Services}
+        \item\href{https://www.sckans.edu/student-services/safety-and-security/}{\color{blue}\bfseries Safety and Security}
+        \item\href{https://www.sckans.edu/student-services/student-affairs}{\color{blue}\bfseries Student Affairs} 
+        \item\href{https://www.sckans.edu/student-services/}{\color{blue}\bfseries Student Services}
+        \item\href{https://www.sckans.edu/student-services/student-success-and-retention/}{\color{blue}\bfseries Student Success Center}
+    \end{itemize}
+    Students who have a disability that might prevent them from fully demonstrating their academic abilities should contact the \href{https://www.sckans.edu/student-services/student-success-and-retention/directory/view/765/}{\color{blue}\bfseries Disability Services Coordinator} as soon as possible to discuss accommodations.
+\end{document}

@@ -1,0 +1,145 @@
+% BEGIN
+\documentclass{article}
+
+% UNICODE
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage{oplotsymbl}
+
+% LAYOUT
+\usepackage{calc}
+\newlength{\unit}\setlength{\unit}{9.5625pt} % ONE- SIXTY-FOURTH PAGE WIDTH
+\newlength{\marginheaderl}\setlength{\marginheaderl}{0\unit}
+\newlength{\widthheader}\setlength{\widthheader}{24\unit}
+\newlength{\marginl}\setlength{\marginl}{4\unit}
+\newlength{\marginr}\setlength{\marginr}{4\unit}
+\usepackage[
+    paperwidth=612pt, 
+    paperheight=792pt, 
+    margin=\marginr, 
+    top=8\unit, 
+    left=\marginheaderl + \widthheader + \marginl, 
+    bottom=8\unit, 
+    marginparsep=\marginl, 
+    marginparwidth=\widthheader
+]{geometry}
+
+% PACKAGES
+\usepackage[overlay]{textpos}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fp}
+
+% SUPPRESS UNDERFULL BOX WARNINGS
+% \hbadness=999999
+
+% HYPERLINKS HAVE ODD FORMATTING
+\hypersetup{%
+  colorlinks=false,% HYPERLINKS WERE RED
+  linkbordercolor=red,% THEY HAD A RED BORDER
+  pdfborderstyle={/S/U/W 0}% THEY HAD A BORDER AND 1PT UNDERLINE
+}
+
+% FONTS
+\usepackage{TheanoDidot} % ROMAN
+\usepackage{Chivo} % SANS_SERIF
+\usepackage{inconsolata} % MONOSPACE
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\defaultfontsize}{\fontsize{\unit}{1\unit}\selectfont}
+
+% FORMATTING
+\linespread{1}
+\setlength\parindent{0pt}
+\reversemarginpar
+\pagenumbering{gobble}
+
+% SECTIONS
+\newcommand{\sectionskip}{\vspace{4\unit}}
+\newcommand{\makeHeader}[1]{
+    \leavevmode\marginpar{%
+        \ttfamily
+        \defaultfontsize
+        \textblockcolor{black}%
+        \begin{flushright}\leavevmode\leaders\hbox{\space»}\hfill\kern0pt\uppercase{\space#1}\end{flushright}
+    }%
+}
+
+% ASSIGNMENT
+\newcommand{\assignment}[5]{
+    \makeHeader{}%
+    Programming 2\\
+    Cptr.212\\
+    \vspace{\baselineskip}
+    Fall 2020 | Southwestern College\\
+    Professor Evan Daniel\\
+    Evan.Daniel@SCKans.edu\\
+    \vspace{\baselineskip}
+    Assignment \##1\\
+    "#2"\\
+    \sectionskip\makeHeader{Deliverables}%
+    #3\\
+    \if\relax #4\relax\else\sectionskip\makeHeader{Comments}%
+    #4\fi
+    \if\relax #5\relax\else\\
+    \sectionskip\makeHeader{Resources}%
+    #5\fi
+}
+
+% DOCUMENT
+\begin{document}
+    \defaultfontsize
+    \raggedright
+    
+    % \assignment{}{}{}{}
+
+    \assignment{14}{Final Test}{Our final test will ask you to create a program that demonstrates understanding of four major topics: \begin{itemize}\item The syntax and use of the C programming language.\item The use of classes, with inheritance.\item The ability to algorithmically modify numerical data.\item Familiarity with common C library functions and linking protocols.\end{itemize}You will have 1.5 hours to complete the task assigned and upload it to a new Github repository.}
+    
+    % \assignment{13}{Final Project}{Create an extension of the C programming language.  Your program should read source code from an input file passed in as an argument.  It should then substitute keywords --- based on your own design --- from the source code into valid C (without error-checking).  Lastly, it should save the output as a new file with the extension ".c", which (supposing there were no errors in the source code) can be compiled by GCC and then run.  Your compiler (or transpiler) program should print documentation of your new language features when run with the argument "--help".  You should try to design the "new language" to be as useful as possible.  Upon completion, create a Github repo called "final" and upload your source.}{Many of the most influential languages use C as a basis for their syntax.  Because C is ubiquitous, fast, and minimal, it is a superb candidate for extensions.  In this assignment, consider the parts of the language that you would like to see written in other ways.} 
+    
+    % \assignment{12}{Typing App}{Create a Win32 application that allows users to test themselves typing (for instance, typing the number $\pi$ from memory).  The application should include textual feedback, the ability to save games, and as much additional functionality as possible.  For example, the app might allow users to save multiple games, or evaluate/visualize their mistakes or speed.}{Interaction is one of the most nuanced of subjects in programming; it is unpredictable, but vital for the functioning of any sufficiently complex software.  The Windows API allows us to deal with interactions on a much more fine-grained level than the terminal did.}{For this assignment, the most useful resource available will be the \href{https://docs.microsoft.com/en-us/windows/win32/apiindex/windows-api-list}{\color{blue}\bfseries Window's API reference}, which introduces the myriad tools available.  Microsoft also offers \href{https://docs.microsoft.com/en-us/windows/win32/learnwin32/learn-to-program-for-windows}{\color{blue}\bfseries C++ Win32 tutorials} that are highly appropriate for C.\\\vspace{\baselineskip}For a walkthrough that starts from scratch, see \href{http://www.winprog.org/tutorial/}{\color{blue}\bfseries theForger's Win32 API Tutorial}.}
+    
+    % \assignment{11}{Merge Sort and Quick Sort}{Revisit the Leetcode problem \href{https://leetcode.com/problems/sort-an-array/}{\color{blue}\bfseries Sort an Array}, and complete the problem using the Quick Sort and Merge Sort algorithms.  On Friday, October 23rd, I will meet with each student and they will complete the problem using one of the two in 15 minutes while sharing their screen on Zoom.  Students are expected to provide an explanation of what they're doing while they're completing the problem.\\\vspace{\baselineskip}I will also check on Friday that you are able to run the sample Win32 API code on your local machine.  As per our class discussion, that will require you to install \href{https://gitforwindows.org/}{\color{blue}\bfseries Git for Windows} (includes Git Bash) and \href{https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/}{\color{blue}\bfseries MinGW} (Minimalist GNU for Windows).}{Quick Sort and Merge Sort are on the list of classic algorithms in almost any CS context.  We will discuss in class why they are effective, and when each is more appropriate than alternatives.\\\vspace{\baselineskip}As we begin discussing the use of C towards software development --- and how the techniques we have discussed relate to the production of applications --- we will need to add some new tools to our toolbox.  MinGW will allow us to use GCC and the headers we need, including those we already expect to be there (such as <stdio.h>) as well as <windows.h>.}{For information on Quick Sort and Merge Sort, see the discussion of the Leetcode problem; the Wikipedia articles on \href{https://en.wikipedia.org/wiki/Quicksort}{\color{blue}\bfseries Quick Sort} and \href{https://en.wikipedia.org/wiki/Merge_sort}{\color{blue}\bfseries Merge Sort} also happen to be quite informative.\\\vspace{\baselineskip}While we are only installing prerequisites for the Win32 API this week, it would be helpful to read the first section or two of \href{http://winprog.org/tutorial/start.html}{\color{blue}\bfseries theForger's Win32 API Programming Tutorial}.}
+    
+    % \assignment{10}{Linux Server}{Create a page in \href{https://github.com/daniel-sckans/cptr212_linux_server}{\color{blue}\bfseries our Linux server}. Include your custom function that generates the response within the header file, and issue a pull request for your work over Github.}{Many of the techniques that we've already been talking about have mainstream applications, including for servers and web apps.  In this case, we will rely on the Linux functionality known as sockets, which closely relate to our previous work with streams and files.  Through custom functions, we will develop a simple server that we will ultimately deploy over the web.  Significantly, note that in the interests of brevity we will not include safety measures that should always be used in production.}{ \href{https://developer.mozilla.org/en-US/}{\color{blue}\bfseries MDN (Mozilla Developer Network)} is a superb resource for instruction on developing for the web.  In particular, please browse their \href{https://developer.mozilla.org/en-US/docs/Web/HTTP}{\color{blue}\bfseries tutorials on HTTP}, which is the protocol we will be writing over.}
+    
+    % \assignment{9}{Midterm Part II}{Sign up at \href{https://leetcode.com/}{\color{blue}\bfseries https://leetcode.com/}, complete the problem \href{https://leetcode.com/problems/sort-an-array/}{\color{blue}\bfseries "Sort an Array"} (in C), and practice it.  On Friday, October 9th, I will meet with each student and they will complete the problem in 15 minutes while sharing their screen on Zoom.  Students are expected to provide an explanation of what they're doing while they're completing the problem.}
+
+    % \assignment{8}{Midterm Part I}{At \href{https://github.com/daniel-sckans/cptr212\_midterm\_pt1}{\color{blue}\bfseries https://github.com/daniel-sckans/cptr212\_midterm\_pt1} is source code for a program.  Inside main(), I will create an object from a series of classes.  These need to be implemented, and it is each student's assignment to implement the class with their name on it.  You can find the declarations for these classes in the associated header file.}
+
+    % \assignment{7}{Implement an API}{Each student has been assigned one function to define in a project.  Write the code to define that function, and submit it as a pull request on Github.\\\vspace{\baselineskip}The process is:\begin{itemize}\item Sign up for Github.com, then visit \href{https://github.com/daniel-sckans/cptr212\_int\_array\_tools}{\color{blue}\bfseries https://github.com/daniel-sckans/cptr212\_int\_array\_tools} and click "fork" in the upper right.  This will create a copy of the repository for your own account.\item Open VSCode to a folder you want to use, then type in the terminal "git clone <<your-repository-url>>".  This will create a local copy for you to work with.\item Edit the code to complete the function you've been assigned.  Most functions should require minimal coding.\item When you're done, type in the terminal: \begin{itemize}\item git add .\item git commit -m "your commit message here"\item git push <<your-repository-url>> master\end{itemize}\item Finally, visit your repository on Github and click "compare \& pull request" to submit a pull request to me.\end{itemize}~~\vspace{-\baselineskip}}{Programming is not a spectator's sport, but it is often a team sport.  Git (and sites like the popular Github.com) offer programmers an effective (and often fun) means of collaborating.\\\vspace{\baselineskip}Simultaneously, we will find that dividing our code into several connected files (through header files, ending in .h) will allow this to happen more easily.}{ \href{https://www.atlassian.com/git}{\color{blue}\bfseries Atlassian} has many popular tutorials dedicated to learning to use Git and Github.com.  There are many other sites offering instruction as well.\\\vspace{\baselineskip}For instruction on using and creating header files, see Gustedt Chapter 10 ("Organization and Documentation"), which covers best practices for using header files.}
+    
+    % \assignment{6}{Command Line Tool}{Create a command line tool, in the style of Unix/Linux.}{The programs we have been writing so far all operate from the command line.  This nominally (in name only) makes them command line programs.  However, real command line tools strive to solve a problem that other programmers have in their daily lives.  That might mean writing to a file based on an argument that a user passes in; searching to see whether a file exists; printing out information from a text file; or returning a mathematical value.  All such examples assume the presence of the POSIX shell layer (including standard C libraries and tools).}{For this assignment, examine standard Unix/Linux commands.  Some of these include ls, cd, echo, cat, less, man, vi or vim, grep, sed, awk, tee; there are many, many more.  To get info on a command, type "man" (for "manual") then the command name into the terminal (e.g. "man ls" or "man man").  \href{https://www.hostinger.com/tutorials/linux-commands}{\color{blue}\bfseries Here's one list of famous Linux commands}, some more complex than others.  These are mostly written in C, so also take a look at \href{https://github.com/coreutils/coreutils/tree/master/src}{\color{blue}\bfseries the source code for these commands}, knowing that --- as "industrial strength" utilities --- the source code will be very involved.}
+
+    % \assignment{5}{Game with Classes (Part I)}{Create a simple game that can be played in the terminal.  The game must be created using objects constructed from classes. This assignment will span two weeks: for the first week, students are required to create the preliminary functionality of the game, including the display of colors in a grid across the terminal, and to respond to user input.  By the end of the second week, students will have created different types of objects in the game using classes.}{C classes are achieved through the use of structs, often dispersed across several different files to achieve code isolation.  Because C does not "hit us over the head" with keywords spelling out how we can construct classes, it is up to us to create classes that are well thought out.  We will discuss topics including the reasons for using classes, naming conventions and best practices, and the separation of C source code into several different files.  Ultimately, we will approach the goal of constructing API's that other programmers can use.}{Read Chapter 6 (\textit{Derived Data Types}) in its entirety, noting in particular sections 6.3 (\textit{structures}) and 6.4 (\textit{new names for types: type aliases}).  Skim (as needed) Chapter 7 (\textit{Functions}).}
+
+    % \assignment{4}{Text Editor}{Create a command line program that allows users to edit a text file.  The program must open a file from an argument to the program, respond in intelligent ways to user input, and save the edited file.}{Text editing in C will require us to retreive and write to files --- as before --- but will also necessitate that we work more closely with arrays, which we will use as buffers.  We will load the contents of the file to character buffers, and use ANSI escape sequences to navigate the printed text.  ANSI sequences can also be used to provide appropriate user feedback.  It is expected that students will create several different means of editing text in their program; students should consider what they would want in a text editor, what is possible, and what common text editors are often lacking.}{To allocate memory for the text, we will use pointers in our code.  We will also use the malloc library function.  Read chapter 11 (\textit{Pointers}) in Gustedt.  It might be easier to grasp where we are going if you look ahead to the next two chapters; if you find it helpful, try skimming or reading chapters 12 (\textit{The C Memory Model}) and 13 (\textit{Storage}).  As always, look back in the textbook as necessary; chapter 5 (\textit{Basic Values and Data}) and section 6.1 (\textit{Arrays}) will be helpful for much of the first part of the semester.\\\vspace{\baselineskip}\href{https://en.wikipedia.org/wiki/ANSI_escape_code}{\color{blue}\bfseries Wikipedia's article on \textit{ANSI escape code}} is a good reference on the subject.}
+
+    % \assignment{3}{Command Line Text Reader}{Create a program that opens and prints text from a plain text .txt file.  \\\vspace{\baselineskip}Review \textit{Modern C} section 8.3 (\textit{input, output, and file manipulation} and section 8.4 (\textit{string processing and manipulation}; also review chapter 6 (\textit{derived data types}).  If you're not yet comfortable with the different types of data we're using, it will be useful to review chapter 5 (\textit{basic values and data}; while recommended, be aware that it goes into a level of detail beyond what we will be addressing directly.}{The program should display the text so that it is easily legible for the reader: allow for scrolling through the text, display instructions for the reader, and allow for text alterations (e.g. word highlighting, word subtraction).\\\vspace{\baselineskip}The program should receive the name of the text file as an argument.  You can assume that the user will only supply one argument to the program, for instance, running it with "textreader ATaleOfTwoCities.txt".\\\vspace{\baselineskip}A plain text copy of "A Tale of Two Cities" by Charles Dickens will be available for testing, and it can also be downloaded from \href{https://www.gutenberg.org/files/98/98.txt}{\color{blue}\bfseries https://www.gutenberg.org/files/98/98.txt}.}{This assignment connects to many of the techniques we've discussed in previous weeks, such as multidimensional arrays, nested for-loops, and stdin and stdout techniques.  On Monday and Wednesday we will discuss C library functions for getting data from files, ways of accessing and parsing arguments, and structs.}
+
+    % \assignment{1}{Standard Output}{%
+    % Create a command line binary that prints to the terminal window, taking its rows and columns into account in a two-dimensional array.  
+    % }{%
+    % This is our first exploration of the C programming language.  We will begin to examine the properties of C arrays, its libraries, the general structure of a C program, and the process of compiling C code.
+    % \\\vspace{\baselineskip}Students must use two-dimensional character arrays to print to the terminal.  
+    % \\\vspace{\baselineskip}What they print should cover exactly the height and width of the visible terminal.  They should use appropriate libraries (stdio.h, unistd.h, sys/ioctl.h) to achieve this.
+    % \\\vspace{\baselineskip}Students should also use the C unistd.h function sleep() or usleep() (microsecond sleep) to change when characters show up in the terminal.
+    % \\\vspace{\baselineskip}The completed assignment should compiled and placed in \textasciitilde/bin so that it can be called anywhere.  The assignment should be submitted on github.  The repository name must be "assignment\_1".  
+    % }{%
+    % Arrays are an integral data structure for any programming language, but in C they are of particular significance for some of their subtle behaviors.  Being comfortable with using them is of the utmost importance.
+    % \\\vspace{\baselineskip}Students should write to the terminal in patterns that show fluency in using for(;;) loops; don't just print the same thing to each cell in the grid, but create unique and interesting patterns there.
+    % }
+    
+    % \assignment{0}{Development Tools}{Install our suite of development tools on a Surface Pro (or equivalent) laptop that you can use both in class and at home.}{%
+    % \href{https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71?activetab=pivot:overviewtab}{\color{blue}\bfseries Ubuntu (20.04LTS) on Windows Subsystem for Linux (WSL)} is a fantastic tool that will allow us to use Linux commands within the Windows OS.  We'll be using it for much of our coursework.
+    % \\\vspace{\baselineskip}\href{https://code.visualstudio.com/download}{\color{blue}\bfseries Visual Studio Code (VSCode)} will be our IDE of choice.  StackOverflow (the leading developer forum) \href{https://insights.stackoverflow.com/survey/2019?utm_source=so-owned&utm_medium=blog&utm_campaign=dev-survey-2019&utm_content=launch-blog\#technology}{\color{blue}\bfseries in a 2019 survey} reported that an amazing 50.7\% of all developers use VSCode.  Compared to Visual Studio, it will do less of our development for us.
+    % \\\vspace{\baselineskip}\href{https://github.com}{\color{blue}\bfseries Github.com} will be our means of submitting work, getting feedback, and collaborating with each other.  Github is absolutely ubiquitous (i.e. it is found everywhere) in professional development environments.
+    % \\\vspace{\baselineskip}\href{https://www.manning.com/books/modern-c}{\color{blue}\bfseries Modern C} by Jens Gustedt; this is our required text for the course, and is available online for purchase.  
+    % }{%
+    % Installing Ubuntu and VSCode will require admin privileges; if you are using your college-issued Surface Pro, \href{https://www.sckans.edu/student-services/information-technology/}{\color{blue}\bfseries please visit or write to the Help Desk} so they can authorize your install.  
+    % }
+
+\end{document}

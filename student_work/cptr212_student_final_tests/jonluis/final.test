@@ -1,0 +1,20 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+Starting
+  
+  Declaring_first_variable
+  Declaring_second_variable
+  Declaring_third_variable
+
+  printf("Enter a number to calculate its factorial\n");
+  
+  scanf("%d", &b);
+  Loop_numbers
+    c = c * a;
+ 
+  printf("Factorial of %d = %d\n", b, c);
+ 
+  EXIT_PROGRAM
+}

@@ -1,0 +1,123 @@
+% BEGIN
+\documentclass{article}
+
+% UNICODE
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage{oplotsymbl}
+
+% LAYOUT
+\usepackage{calc}
+\newlength{\unit}\setlength{\unit}{9.5625pt} % ONE- SIXTY-FOURTH PAGE WIDTH
+\newlength{\marginheaderl}\setlength{\marginheaderl}{0\unit}
+\newlength{\widthheader}\setlength{\widthheader}{24\unit}
+\newlength{\marginl}\setlength{\marginl}{4\unit}
+\newlength{\marginr}\setlength{\marginr}{4\unit}
+\usepackage[
+    paperwidth=612pt, 
+    paperheight=792pt, 
+    margin=\marginr, 
+    top=8\unit, 
+    left=\marginheaderl + \widthheader + \marginl, 
+    bottom=8\unit, 
+    marginparsep=\marginl, 
+    marginparwidth=\widthheader
+]{geometry}
+
+% PACKAGES
+\usepackage[overlay]{textpos}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fp}
+
+% SUPPRESS UNDERFULL BOX WARNINGS
+% \hbadness=999999
+
+% HYPERLINKS HAVE ODD FORMATTING
+\hypersetup{%
+  colorlinks=false,% HYPERLINKS WERE RED
+  linkbordercolor=red,% THEY HAD A RED BORDER
+  pdfborderstyle={/S/U/W 0}% THEY HAD A BORDER AND 1PT UNDERLINE
+}
+
+% FONTS
+\usepackage{TheanoDidot} % ROMAN
+\usepackage{Chivo} % SANS_SERIF
+\usepackage{inconsolata} % MONOSPACE
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\defaultfontsize}{\fontsize{\unit}{1\unit}\selectfont}
+
+% FORMATTING
+\linespread{1}
+\setlength\parindent{0pt}
+\reversemarginpar
+\pagenumbering{gobble}
+
+% SECTIONS
+\newcommand{\sectionskip}{\vspace{4\unit}}
+\newcommand{\makeHeader}[1]{
+    \leavevmode\marginpar{%
+        \ttfamily
+        \defaultfontsize
+        \textblockcolor{black}%
+        \begin{flushright}\leavevmode\leaders\hbox{\space»}\hfill\kern0pt\uppercase{\space#1}\end{flushright}
+    }%
+}
+
+% ASSIGNMENT
+\newcommand{\assignment}[5]{
+    \makeHeader{}%
+    Motion Graphics\\
+    Cptr.346\\
+    \vspace{\baselineskip}
+    Fall 2020 | Southwestern College\\
+    Professor Evan Daniel\\
+    Evan.Daniel@SCKans.edu\\
+    \vspace{\baselineskip}
+    Assignment \##1\\
+    "#2"\\
+    \sectionskip\makeHeader{Deliverables}%
+    #3\\
+    \sectionskip\makeHeader{Comments}%
+    #4
+    \if\relax #5\relax\else\\
+    \sectionskip\makeHeader{Motivation}%
+    #5\fi
+}
+
+% DOCUMENT
+\begin{document}
+    \defaultfontsize
+    \raggedright
+
+    % \assignment{}{}{}{}{\includegraphics[width=\linewidth]{}}
+
+    \assignment{11}{Final}{Create an animation that appears complete by the conventional standards of TikTok.  Your final video must include the following elements: \begin{itemize}\item Camera movement\item Audio\item Lip syncing\item An armature\item At least two scenes\end{itemize}TikTok requires videos to be 1920 pixels by 1080 pixels and to be no more than 15 seconds in length, so you will need to export your video in that format.  You can use a horizontal or vertical aspect ratio, although vertical is more common on TikTok.  You must upload the final rendered video and all of your original Toon Boom files to our Drive folder.}{TikTok is a popular contemporary video sharing network.  Our work this semester has covered all of the visual elements necessary to create visual animations that tell stories, like those on TikTok.  Your video should include audio and textures/materials as necessary to help your viewers understand the story you want to tell; consider what someone seeing your video out-of-context would be able to read in it, and whether they would find it satisfying all by itself.  The result does \textit{not} need to be flashy or include advanced modeling elements, but it is fundamental that the animation tells a story.}{Animators are finding a significant audience over TikTok, and it can be a way of networking with professional animators.  Below is a sampling of TikTok videos with the hashtag \#animation.\\\vspace{\baselineskip}\includegraphics[width=0.66\linewidth]{media/tiktok_2d_animation.png}}
+
+    % \assignment{10}{AnimatedScenes}{Using the script, storyboard, and assets from previous weeks, create finished animated scenes.  These will be combined together into a finished animation.}{See our Teams script document for a list of which scenes are to be animated by whom; each student will be responsible for animated several scenes completely.  Each component will have several challenges; the initial scenes require careful camera movement and character movement; the second group of scenes requires a character transformation; and the last scene requires lip-synching (which also requires audio to be recorded).}
+    
+    % \assignment{9}{Assets}{Create the assets needed to complete the story that you have worked on in previous weeks.  They do not yet need to be assembled into a finished animation.  When appropriate, characters should be rigged and prepared for armature animation.  All images should be in full color.  Each asset should be kept in its own file (characters should not have background images, and backgrounds should not have characters in them).}{The items to be completed will include the following: \begin{itemize}\item Background of the chicken's living area: Mohammad\item Background displaying the living area seen at a distance and the barn: Essa\item Background of the area near the side of the barn: Kenzie \item The chickens: Essa\item The farmhand: Kenzie\item The dinosaur: Mohammad\end{itemize}}
+    
+    % \assignment{8}{Storyboard}{Create a storyboard for the collaborative project we have been working on.  The storyboard should be completed in Toon Boom Harmony.}{This assignment will be evaluated in terms of how well it tells the story that you came up with.  Consider elements such as framing and composition, color, and narrative details; all while communicating the tone of the script.  Consider also that the storyboard will need to be turned into an animation, so efficiency in storytelling is significant.}{The 2009 file \textit{Coraline} was created using many preliminary materials, including the storyboard image below.  While quickly drawn, it evinces the tone of the story and this particular scene.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/coraline_storyboard.jpg}}
+
+    % \assignment{7}{Team Script}{Collaborate in class and over Microsoft Teams to create a script for an animation to be completed by the entire cohort (working together) over the next three weeks.  The script should include the following: \begin{itemize}\item A list of characters.\item A character sheet for each character, including information such as their personality, appearance, and background.\item A list of scenes.\item A description of each scene and the visual form it is meant to convey, including details that need to be included in detail.\item A script with the dialogue for each of the characters, camera instructions, and mood descriptions.\end{itemize}If a student is missing from class for any reason, their contribution to the collaborative effort will be graded based on their written responses over Microsoft Teams within 48 hours of the missed class.  The basis will be that 625 words of feedback (not including script writing) will be equivalent to 1.25 hours of class time.}{Animations are team efforts, and for good reason: working with a team allows us to accomplish more ambitious goals while also getting feedback, technical expertise, and support from others.  In general, knowing how to work as a team in digital media fields is an invaluable skill.}{A partial list of the animators who worked on \textit{Lilo and Stitch} (2002); I was unable to fit the entire list in my browser view.\\\vspace{\baselineskip}\includegraphics[width=0.5\linewidth]{media/lilo_and_stitch_credits.png}}
+    
+    % \assignment{6}{Midterm}{Create a 42-second animation.  The animation should assume a frame rate of 24 frames per second, meaning that the animation must span a total of exactly 1008 frames (no more, no less).  The animation must also be exported as an mp4 file.  The story that the animation tells must be original.}{Animation excels at telling stories, combining visual, verbal, and musical content across time.  In this assignment, create a story of your own that demonstrates these abilities of animation.  The animation elements you include are up to you, but use the techniques we have discussed as appropriate (e.g. lip synching, bones and rigging, and motion keyframe animation).}{The Oscars (or Academy Awards) each year presents an award for Best Animated Short Film, the most recent winner being "Hair Love".\\\vspace{\baselineskip}\includegraphics[width=0.66\linewidth]{media/hair_love.jpg}}
+
+    % \assignment{5}{Rigging}{Create a full-body character animation using rigging.}{Rigging is fundamental animation tool, used in 2D and 3D animation, compositing, and motion graphics.  It allows us to move images in a way that respects the way their constituent parts fit together.  It also allows us to share the same skeletal logic between several different figures, while making keyframing much more efficient.  In this assignment, we will examine these capabilities for a standalone figure.}{The rigging techniques that we explore here are directly analogous to those used in conjunction with motion capture suits in the production of big-budget movies.  In both cases, it is the rig or armature (similar to a skeleton) that is controlled like a marionette.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/mocap.jpg}}
+
+    % \assignment{4}{Audio}{Create a short animated scene featuring a speaking character.  The audio for the character's speech must be original.  It will also be necessary to create background imagery.}{The ability to represent the act of speaking is fundamental for animation as a field.  Not only does it allow for the conveyance of verbal information, but it also fills many psychological desiderata of animation.  Speaking characters attract our eye, telling us where to direct our attention.  They create a sense of story, and ease the burden of on visual cortex by allowing us to focus on other types of input.}{ \textit{Betty Boop} had a simplified mouth but a highly distinctive voice; her cadence and enunciation are fundamental in defining her character.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/betty_boop_minnie_the_moocher.jpg}}
+
+    % \assignment{3}{Scenes}{Create a short (\textasciitilde 10 second) animation that features camera movement and background layers.}{Context plays a huge part in how we (humans) interpret scenes, and it is a huge part of the strength of animation that it can display scenes and camera actions that are impossible or impractical in live film.\\\vspace{\baselineskip}In this assignment, we will move the camera around a fully-composed scene to tell a story.  Include at least one moving character/figure as well; optionally, they can interact with the scene itself.}{In traditional animation and contemporary animation alike, it is usually possible to reuse a background image (or part of a background image) over many frames.  This means that backgrounds can be more detailed than moving figures.  Below is a frame from \textit{Snow White and the Seven Dwarfs} (1937) and another from \textit{Archer} (2016).\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/snow_white.jpg}\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/archer_background.jpg}}
+    
+    % \assignment{2}{Stop Motion}{Create an animation using both keyframing and stop motion techniques.}{Keyframing is a fundamental tool for creating animations.  In our case, it allows Harmony to assist us in filling the gaps between drawings.  However, there are some effects and appearances that require us to change the underlying drawing without keyframes.\\\vspace{\baselineskip}Create a short (\textasciitilde 15 second) animation that uses both keyframes and stop motion animation.  The stop motion animation does not have to be the central or main method of animation, but you should be able to point it out during our critique.}{Stop motion animation has a history going back to the origins of animation.  In this image from a 1939 documentary, an artist creates a new drawing for every frame (notice the "pegs" holding the drawing in place, analogous to the use of pegs in Harmony).\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/stop_motion.jpg}}
+
+    % \assignment{1}{Flatland}{Create a short animation that uses keyframes to transform basic shapes.}{Toon Boom animations can occur either as stop-motion (individual frames) or through keyframes that use tweening.\\\vspace{\baselineskip}In this exercise, we will use the advanced animation tools and keyframes to create a short narrative based around simple shapes.\\\vspace{\baselineskip}Our inspiration will be Edwin Abbott's \textit{Flatland: A Romance in Many Dimensions}, which addresses foundational questions of geometry and dimensionality.}{An illustration from \textit{Flatland}: \\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/flatland.png}}
+
+    % \assignment{0}{Software}{Install \href{https://www.toonboom.com/products/harmony}{\color{blue}\bfseries Toon Boom Harmony Essentials} on a laptop you can use at home and at class.}{Toon Boom Harmony is the single software most highly associated with \href{https://www.toonboom.com/company/about-us}{\color{blue}\bfseries broadcast cartoons}; it will be our base software for this course.\\\vspace{\baselineskip}Subscriptions to Harmony are on a tiered model; for this course, you are required to subscribe to the Essentials version, which is \$24/month with no contract.  Toon Boom also offers a 21-day free trial which you can use to reduce costs.\\\vspace{\baselineskip}Students are required to use their own laptops in the course (either a college-provisioned Surface Pro or a personal Windows/macOS laptop).  If you are using your Surface Pro, you will need to have the Help Desk enter an administrator's password to complete installation.}{Given Harmony's ubiquity, it wouldn't hurt to spend some time sampling cartoons through your favorite streaming service to get a sense of what's possible.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/Bobs-Burgers.jpg}}
+
+\end{document}

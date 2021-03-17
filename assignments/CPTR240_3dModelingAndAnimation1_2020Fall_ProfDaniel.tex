@@ -1,0 +1,132 @@
+% BEGIN
+\documentclass{article}
+
+% UNICODE
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage{oplotsymbl}
+
+% LAYOUT
+\usepackage{calc}
+\newlength{\unit}\setlength{\unit}{9.5625pt} % ONE- SIXTY-FOURTH PAGE WIDTH
+\newlength{\marginheaderl}\setlength{\marginheaderl}{0\unit}
+\newlength{\widthheader}\setlength{\widthheader}{24\unit}
+\newlength{\marginl}\setlength{\marginl}{4\unit}
+\newlength{\marginr}\setlength{\marginr}{4\unit}
+\usepackage[
+    paperwidth=612pt, 
+    paperheight=792pt, 
+    margin=\marginr, 
+    top=8\unit, 
+    left=\marginheaderl + \widthheader + \marginl, 
+    bottom=8\unit, 
+    marginparsep=\marginl, 
+    marginparwidth=\widthheader
+]{geometry}
+
+% PACKAGES
+\usepackage[overlay]{textpos}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fp}
+
+% SUPPRESS UNDERFULL BOX WARNINGS
+% \hbadness=999999
+
+% HYPERLINKS HAVE ODD FORMATTING
+\hypersetup{%
+  colorlinks=false,% HYPERLINKS WERE RED
+  linkbordercolor=red,% THEY HAD A RED BORDER
+  pdfborderstyle={/S/U/W 0}% THEY HAD A BORDER AND 1PT UNDERLINE
+}
+
+% FONTS
+\usepackage{TheanoDidot} % ROMAN
+\usepackage{Chivo} % SANS_SERIF
+\usepackage{inconsolata} % MONOSPACE
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\defaultfontsize}{\fontsize{\unit}{1\unit}\selectfont}
+
+% FORMATTING
+\linespread{1}
+\setlength\parindent{0pt}
+\reversemarginpar
+\pagenumbering{gobble}
+
+% SECTIONS
+\newcommand{\sectionskip}{\vspace{4\unit}}
+\newcommand{\makeHeader}[1]{
+    \leavevmode\marginpar{%
+        \ttfamily
+        \defaultfontsize
+        \textblockcolor{black}%
+        \begin{flushright}\leavevmode\leaders\hbox{\space»}\hfill\kern0pt\uppercase{\space#1}\end{flushright}
+    }%
+}
+
+% ASSIGNMENT
+\newcommand{\assignment}[5]{
+    \makeHeader{}%
+    3D Modeling and Animation\\
+    Cptr.240 | Cptr.250 | Cptr.350\\
+    \vspace{\baselineskip}
+    Fall 2020 | Southwestern College\\
+    Professor Evan Daniel\\
+    Evan.Daniel@SCKans.edu\\
+    \vspace{\baselineskip}
+    Assignment \##1\\
+    "#2"\\
+    \sectionskip\makeHeader{Deliverables}%
+    #3\\
+    \sectionskip\makeHeader{Comments}%
+    #4
+    \if\relax #5\relax\else\\
+    \sectionskip\makeHeader{Motivation}%
+    #5\fi
+}
+
+% DOCUMENT
+\begin{document}
+    \defaultfontsize
+    \raggedright
+
+    % \assignment{}{}{}{}
+
+    % \assignment{13}{Final}{Create a 3D animation that appears complete by the conventional standards of TikTok.  TikTok requires videos to be 1920 pixels by 1080 pixels (in either horizontal or vertical format, although vertical is more common), and to be no more than 15 seconds in length; this means you will be required to render your video in this format.  It must include textures, audio, and (of course) moving elements.  You may use any of the software we have discussed during the course (Blender, Substance Painter, Substance Designer, and ZBrush).  Your final project must be uploaded to our Drive folder as a rendered video and as a packaged file.}{TikTok is a popular contemporary video sharing network.  Our work this semester has covered all of the visual elements necessary to create visual animations that tell stories, like those on TikTok.  Your video should include audio and textures/materials as necessary to help your viewers understand the story you want to tell; consider what someone seeing your video out-of-context would be able to read in it, and whether they would find it satisfying all by itself.  The result does \textit{not} need to be flashy or include advanced 3D modeling elements, but it is fundamental that 3D animation tells a story.}{3D animators are finding a significant audience over TikTok, and it can be a way of networking with professional 3D animators.  Below is a sampling of TikTok videos with the hashtag \#3dmodeling.\\\vspace{\baselineskip}\includegraphics[width=0.66\linewidth]{media/tiktok_3d_modeling.png}}
+
+    % \assignment{12}{Conversation}{Create a short conversation between two characters.  The conversation must be lip-synced using the techniques we demonstrated in class, but need not use any other movements.  You should supply the audio tracks for both (you can use the Windows \textit{voice recorder} app towards that end).  The animation does not require any other movement; it is also not required that you render the results, add materials or textures, or produce fully complete models (just heads are okay).}{Lip syncing profoundly broadens the possibilities of 3D animation.  Language is a vital part of digital art, and it is by putting the two together that we form narratives in 3D animation.}{Conventionally, both 2D and 3D animations have used lip shape tables to automate the tedious task of lip-syncing.  In our case, we will adjust mouth movement based on volume alone.\\\vspace{\baselineskip}\includegraphics[width=0.66\linewidth]{media/lip_sync_chart.jpg}}
+    
+    % \assignment{11}{Compositing}{Composite a 3D animation over a video.  The model and video must both be original.  The output must be rendered to a JPG .AVI file.}{3D modeling seeks to emulate the world around us visually, so it is perhaps not surprising that one of the great applications of 3D modeling is to supplement live action video.  For this assignment, neither the model nor the video alone is what matters; what will make the biggest difference to the viewer is the way that the two interplay.}{One of the most visible occurences of 3D modeling in today's culture is in big-budget film and television.  Marvel movies such as \textit{Avengers: Infinity War} (2018) make careful and expressive use of 3D animation cohabitating a visual scene with live action video.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/marvel_green_screening.jpg}}
+    
+    % \assignment{9}{CollaborativeScene}{Assemble the models created in Assignment 8 into a scene, and then animate them.  The content of the story --- as well as the surrounding 3D environment --- is entirely up to you.  \\\vspace{\baselineskip}For this assignment you are allowed to use models from external resources (such as TurboSquid), with two caveats.  All models must be free (you may not pay for any models).  Secondly, all models from external sites must be used only for the environment (you \textit{may not} use models to add more characters to your animation).}{Animations are almost never created by just one person.  While our goal in this course is to understand the entire process in a holistic way, we will demonstrate the ability of Blender to combine the work of several animators into one scene.}{A partial view of the visual effects credits for \textit{Thor: Ragnarok} (I was unable to zoom out far enough to picture the entire team); 3D animators make up much of this group.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/thor_credits.png}}
+
+    % \assignment{8}{Character Model}{Create a character sheet describing the personality, history, and points of interest for a character you'd like to model.  This character must be entirely original.  \\\vspace{\baselineskip}Next, model the character in Blender.  The model should not include an environment (only the character themselves), but should include rigging, texturing, and constraints.  \\\vspace{\baselineskip}Upload your finished Blender file and any textures you've created.}{Character design is vital for 3D animation.  The thought and consideration that you put into your character comes through in the visual style, nuances, and subject that your viewers read into.  It also allows us to share our work more easily with other animators, who are able to treat your character as an individual.}{Below is a character design for the 3D animated film \textit{Coraline}, based on the work of writer Neil Gaiman.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/coraline_character_design.jpg}}
+
+    % \assignment{8}{Collaborative Scene}{In class, each student will create a character in ZBrush and Substance Painter.  These will be shared within the class.  Next, each student will import all three models into one scene to create an animation.}{Animations are almost never created by just one person.  While our goal in this course is to understand the entire process in a holistic way, we will demonstrate the ability of Blender to combine the work of several animators into one scene.}{A partial view of the visual effects credits for \textit{Thor: Ragnarok} (I was unable to zoom out far enough to picture the entire team); 3D animators make up much of this group.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/thor_credits.png}}
+    
+    % \assignment{7}{Midterm}{Create a 30-second animation.  The animation should assume a frame rate of 24 frames per second, meaning that the animation must span a total of exactly 720 frames (no more, no less).  The animation must also be exported as an mp4 file.  The story that the animation tells must be original.}{3D animation isn't just about the process of creation; it's also about telling stories.  3D animations excel at conveying narratives, offering viewers the ability to enter a 3D world that is entirely invented. For this assignment, the choice of techniques used is up to you, but draw from all those that we have covered so far, and use them to best advantage (e.g. Blender keyframes, rigging, ZBrush, Substance Painter).}{The Oscars (or Academy Awards) each year presents an award for Best Animated Short Film, the 2018 winner being \textit{Bao}, a 3D-animated film about a dumpling.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/bao_short_film.jpg}}
+
+    % \assignment{6}{Aliens}{Create an alien portrait using ZBrush, and then texture it three times in Substance Painter.  \\\vspace{\baselineskip}CPTR250 students will create the entire figure of the alien (not just the head).  CPTR350 students will make their alien a cyborg (the alien should have some technology that they wear or that is embedded inside of them).}{Textures are about more than just color: they can radically change the psychological impact of a model.  Increasingly, they also include many other layers beyond color as well: normal, roughness, and metallic maps being three of the most common.  By starting with one model of an alien and creating three permutations, we give ourselves the freedom to create unexpected material associations (consider what an alien with crocodile skin would look like compared to metallic skin).}{Below, an example of a model for a game (\textit{Assassin's Creed}) before and after texturing.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/texturing_before_and_after.jpeg}}
+
+    % \assignment{5}{Portrait Bust}{Create a naturalistic portrait bust of someone.  The choice of subject (the person you represent) is up to you, but you should make sure you have adequate photographic reference so as to be able to model the portrait from all sides; if desired, it is convenient to create a model of yourself.  The model must be created in ZBrush (or ZBrush Core Mini), then imported into Blender.\\\vspace{\baselineskip}CPTR250 students must also rig the model.  CPTR350 students must rig the model using the Blender addon "Rigify" (use the full human model).}{ZBrush is a very appropriate tool for creating details in our models.  In this case, we will explore it in conjunction with Blender to do more than either can individually.}{Roman portrait busts are considered by many to be the apogee or height of the art form itself; carved in marble, they represent naturalistic (realistic, specific) detail that resonates with us two millennia later.\\\vspace{\baselineskip}\includegraphics[width=0.5\linewidth]{media/roman_portrait_bust.jpg}}
+
+    % \assignment{4}{Character Animation}{Create a simple character model and animate it. Additionally, \href{https://pixologic.com/}{\color{blue}\bfseries visit Pixologic.com}, sign up for a free account, and install the free software ZBrush Core Mini (this might require an admin password, available at the Help Desk).\\\vspace{\baselineskip}CPTR250 students should also have the character react to a separate moving object.\\\vspace{\baselineskip}CPTR350 students should have their character placed in an animated scene they can react to.}{The animation can be any length (within reason), but try to tell a short story using the figure of the character.  That will be easier if you try to emulate the movement of a real person, so consider searching for videos of people moving in the way you're imaging, or look in a mirror and act out the motion yourself.}{We will discuss rigging, bones, and armatures in class, with a special emphasis on how to animate them.  These tools will allow us to create complex but natural movements by creating a framework our character is built around.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/blender_rigging.jpg}}
+
+    % \assignment{3}{Rendering}{Create a fully-rendered, exportable scene using materials and the camera.}{3D modeling and animation are at the core of our work with Blender.  In the context of creating a video animation, though, all that work is directed towards one primary goal: creating a rendered scene.\\\vspace{\baselineskip}Using your environment from assignments one and two, first add materials and camera movement (in whatever order you choose) to the scene.  Make sure to preview the camera view using rendered shading (by pressing 'z' on your keyboard and selecting it).\\\vspace{\baselineskip}Cptr250 students should selectively assign materials to certain faces.  Cptr350 students should change camera settings (such as perspective).}{Rendering can be very GPU (Graphics Processing Unit) intensive; below is a vintage photograph of a "render farm" (a series of computers intended to be used to generate high-quality rendered images) from the mid-1990s.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/old_render_farm.jpg}}
+    
+    % \assignment{1}{Scary Bunny}{Create a 3D model of a bunny (scary).}{The model should be created in Blender, starting from standard mesh shapes and proceeding to increasingly individualized deformations.\\\vspace{\baselineskip}The model should use smooth shading, axis-specific transformations, extrusions, and should consist entirely of one object.\\\vspace{\baselineskip}CPTR250 students should also incorporate lighting.\\\vspace{\baselineskip}CPTR350 students should incorporate one other object of their choosing.}{The rabbit of Caerbannog \\\vspace{\baselineskip}\includegraphics{media/caerbannog_rabbit.jpg}}
+
+    % \assignment{0}{Software}{Install the free software \href{https://www.blender.org/}{\color{blue}\bfseries Blender}.\\
+    % \vspace{\baselineskip}Gain a free student license to \href{https://www.substance3d.com/education/}{\color{blue}\bfseries Substance3D} and install it.\\
+    % \vspace{\baselineskip}Acquire a free student license to \href{https://www.autodesk.com/education/free-software/maya}{\color{blue}\bfseries Autodesk Maya} and install it.
+    % }{In this course we'll be working with powerful software capable of creating naturalistic (or realistic) models and animations.\\
+    % \vspace{\baselineskip}All software is free to students; you will not need to enter any payment information.  Follow the above links for instructions, using your college email address to sign up to Substance3D and Autodesk Maya (those two will verify your email to authorize you for free access).\\
+    % \vspace{\baselineskip}All software should be installed on a laptop you can work on at home and at class.  That might be your college-issued laptop, although generally another laptop is okay so long as it runs Windows/macOS.  On a college-issued laptop you will need to ask someone from the Help Desk to type in an administrator's password to complete installation.
+    % }{For motivation, I'd recommend you watch any of the thousands of videos and games using 3D modeling and animation; that's exactly the kind of stuff we'll be doing.\\
+    % \vspace{\baselineskip}\includegraphics[width=\linewidth]{media/incredible.jpg}}
+
+\end{document}

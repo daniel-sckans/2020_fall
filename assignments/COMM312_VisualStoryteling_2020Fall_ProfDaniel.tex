@@ -1,0 +1,130 @@
+% !TEX -job-name="Comm312/Sckans_Fall2020_Comm312_Assignment1_SingleImageStory"
+
+% BEGIN
+\documentclass{article}
+
+% UNICODE
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage{oplotsymbl}
+
+% LAYOUT
+\usepackage{calc}
+\newlength{\unit}\setlength{\unit}{9.5625pt} % ONE- SIXTY-FOURTH PAGE WIDTH
+\newlength{\marginheaderl}\setlength{\marginheaderl}{0\unit}
+\newlength{\widthheader}\setlength{\widthheader}{24\unit}
+\newlength{\marginl}\setlength{\marginl}{4\unit}
+\newlength{\marginr}\setlength{\marginr}{4\unit}
+\usepackage[
+    paperwidth=612pt, 
+    paperheight=792pt, 
+    margin=\marginr, 
+    top=8\unit, 
+    left=\marginheaderl + \widthheader + \marginl, 
+    bottom=8\unit, 
+    marginparsep=\marginl, 
+    marginparwidth=\widthheader
+]{geometry}
+
+% PACKAGES
+\usepackage[overlay]{textpos}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fp}
+
+% SUPPRESS UNDERFULL BOX WARNINGS
+% \hbadness=999999
+
+% HYPERLINKS HAVE ODD FORMATTING
+\hypersetup{%
+  colorlinks=false,% HYPERLINKS WERE RED
+  linkbordercolor=red,% THEY HAD A RED BORDER
+  pdfborderstyle={/S/U/W 0}% THEY HAD A BORDER AND 1PT UNDERLINE
+}
+
+% FONTS
+\usepackage{TheanoDidot} % ROMAN
+\usepackage{Chivo} % SANS_SERIF
+\usepackage{inconsolata} % MONOSPACE
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\defaultfontsize}{\fontsize{\unit}{1\unit}\selectfont}
+
+% FORMATTING
+\linespread{1}
+\setlength\parindent{0pt}
+\reversemarginpar
+\pagenumbering{gobble}
+
+% SECTIONS
+\newcommand{\sectionskip}{\vspace{4\unit}}
+\newcommand{\makeHeader}[1]{
+    \leavevmode\marginpar{%
+        \ttfamily
+        \defaultfontsize
+        \textblockcolor{black}%
+        \begin{flushright}\leavevmode\leaders\hbox{\space»}\hfill\kern0pt\uppercase{\space#1}\end{flushright}
+    }%
+}
+
+% ASSIGNMENT
+\newcommand{\assignment}[5]{
+    \makeHeader{}%
+    Visual Storytelling\\
+    Comm.312\\
+    \vspace{\baselineskip}
+    Fall 2020 | Southwestern College\\
+    Professor Evan Daniel\\
+    Evan.Daniel@SCKans.edu\\
+    \vspace{\baselineskip}
+    Assignment \##1\\
+    "#2"\\
+    \sectionskip\makeHeader{Deliverables}%
+    #3
+    \if\relax #4\relax\else\\
+    \sectionskip\makeHeader{Comments}%
+    #4\fi
+    \if\relax #5\relax\else\\
+    \sectionskip\makeHeader{Motivation}%
+    #5\fi
+}
+
+% DOCUMENT
+\begin{document}
+    \defaultfontsize
+    \raggedright
+
+    % \assignment{}{}{}{}{\includegraphics[width=\linewidth]{}}
+
+    % \assignment{14}{Final}{Create a graphic novel or video that displays consistency between its visual and narrative elements.  The software used should be Adobe Illustrator and/or Media Composer; if you are considering the use of other media or software, you must receive instructor approval.  Without exception, all content must be original: each visual element visible or audible in the final work must be authored by you.}{Consistency is arguably the \textit{gold standard} in the criticism in art.  While theory vacillates in its assessments according to various criteria, consistency is arguably the one quality that can never be disregarded.  And in the creation of visual stories in particular, consistency is paramount.\\\vspace{\baselineskip}For our final, you should strive to create work where the way that the story is told is inextricably intertwined with the story itself.  Achieving this will be a matter of creating levels of consistency that are as conceptually robust as possible.}
+    
+    % \assignment{13}{Illustrated Monologue}{Create a short video story on Avid Media Composer using footage of yourself speaking to the camera.  The footage should use Illustrator images to demonstrate what you are discussing.}{Non-linear video editing exists to turn footage into a story.  In this case, the video footage you will work with will start with a portrait shot of yourself (it can be comprised of several takes).  Demonstrate video editing techniques discussed in class to produce natural transitions, cuts, and orchestrations.}{YouTube-style instructional video often make use of illustrative content.  While we will try to avoid the style such videos often evince, they can be inventive.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/youtube_instructional.jpg}}
+    
+    % \assignment{12}{Written Response to The Sandman}{Write a 250-word response to the supplied issue of \textit{The Sandman}, a comic book written by Neil Gaiman. The written style of the response will be evaluated for grading, and the response will be shared in-class.}{Neil Gaiman has been a prominent storyteller for several decades, at first stemming from his association with Alan Moore, writer for \textit{The Watchmen} (and several other works).  His interest in mythology is readily apparent in this conceptually complex work.}
+    
+    % \assignment{11}{Doctored Montage}{Create a short film (\textasciitilde 20 seconds in length) comprised of photographs which have been altered in Illustrator.  Each student is allowed to use one found photograph (e.g. from Google image search), but every other photograph must be original and taken by the student.  Not every photograph must be altered in Illustrator, but the work as a whole must read as a hybrid photographic/vector-graphic story.}{Photographic principles present substantial challenges for a visual storyteller.  Working photographically drastically limits the stories a visual artist can tell; many of the visual elements remain out of their control; and edits become increasingly difficult.  In this assignment we will take a hybrid approach to these problems by integrating Illustrator into our workflow.}{Eugenia Loli is a contemporary artist using photographic imagery (in this case, vintage magazine photos) and adding original graphic content.  Below is \textit{Secret Affair}.\\\vspace{\baselineskip}\includegraphics[width=0.66\linewidth]{media/eugenia_loli.jpg}}
+    
+    % \assignment{10}{Written Response to Nimona}{Write a 250-word response to the first 20 pages of \href{https://web.archive.org/web/20130303050957/http://gingerhaze.com/nimona/archive}{\color{blue}\bfseries\itshape Nimona} (2013), a graphic novel by Noelle Stevenson.  The written style of the response will be evaluated for grading, and the response will be shared in-class.}{ \textit{Nimona} was originally an undergraduate thesis project by Stevenson, but has been cited as one of the greatest graphic novels of all time.}
+    
+    % \assignment{9}{Montage}{Create a short film (\textasciitilde 30 seconds in length) comprised of still images montaged together.  The images must be composed entirely in Illustrator, and must be original (do not important any images from other software); however, they do not need to be in full color.  The video must be assembled in Avid Media Composer.  Lastly, the video must include spoken dialogue.}{The bridge between illustrated and videographic narratives is shorter than is commonly imagined.  The field of illustration gives us the tools to compose visual stories on any subject we can visualize, but they inherently lack the ability to precisely define time.  By using our illustrations as the basis for a short film, we arrive at a deeper understanding of that relationship.}{In assignment 8 we reviewed \textit{La Jetee} (1962), a series of still images and narrative formed into a film.  The film demonstrates the increased freedom inherent in parsing time as a sequence of still images, both for filmmakers and viewers.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/la_jetee.jpg}}
+    
+    % \assignment{8}{Written Response to La Jetee}{Write a 250-word response to \href{https://vimeo.com/309034119}{\color{blue}\bfseries the short film \textit{La Jetee} (1962)}.  The written style of the response will be evaluated for grading, and the response will be shared in-class.  Possible topics for consideration are: \begin{itemize}\item The timing between images.\item The compositional style of photographs.\item The implications of photomontage as a filmmaking paradigm for the filmmakers.\item The connection between photomontage and the narrative of the film.\item The impact of the film on subsequent films (note that \textit{La Jetee} was the inspiration for the Terry Gilliam film \textit{Twelve Monkeys} (1995).)\end{itemize}}
+    
+    % \assignment{7}{Graphic Story Script}{Create a script for your midterm.  It should describe both the verbal and visual content that you will present.  It should address at least the first three pages of the story, not including the cover.}{Writing for graphic stories presents some novel difficulties; in the words of comic book writer Alan Moore, \textit{The problem is that no matter how deep the pool of the character's soul might turn out to be it's still only 15 words wide}.  Orchestrating the written word with visual content presents physical limits on the space the writer has, and also produces expectations that the story be told in a way that can be translated visually (under formal and conventional restrictions).}
+    
+    % \assignment{6}{Midterm}{Create an eight-page graphic story.  The first page must be a cover for the work, including a title.  The narrative must use paneling to tell its story (i.e., the story cannot consist of eight images, one per page).  The content of the story must be original.}{Graphic stories --- or comic books --- excel at creating narratives.  They allow us nearly total freedom in terms of representable content; a freedom comparable to that of writing.  But they also correspond very closely to how we think of narratives, allowing us to zoom in on and isolate salient moments and events.  Incorporate any of the techniques discussed so far, as appropriate (e.g. variations in line, clip-masked paneling, live paint colors, and so forth).}{Short-format graphic stories, often in limited series, have sometimes won great acclaim.  In \textit{Marvels}, illustrated by Alex Ross, context is given for the Marvel pantheon, which is seen through the lens of a one-eyed photographer.  Because Ross hand-painted each panel of each issue in great detail, the series was necessarily brief, placing added important on each panel.\\\vspace{\baselineskip}\includegraphics[width=0.5\linewidth]{media/marvels_cover.jpg}}
+
+    % \assignment{5}{Graphic Novel Spread}{Create a graphic novel spread (two sequential pages) that orchestrates text and image to tell a story.  Both pages should use paneling and be in full color, with clearly-legible text that ellucidates the narrative.}{Two-dimensional vision and the written word are two of the primary lenses through which we interpret the world, but it is in conjunction that we find the medium of visual storytelling.  The influence of graphic novels that combine visual imagery with text on the film industry speaks to the power of this field.  For this assignment, the subject of the illustration is up to you, understanding that it must include text as a non-trivial element.}{Alan Moore and Dave Gibbons' \textit{The Watchmen} is widely considered one of the greatest comic books of all time, garnering plaudits for its writing in particular.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/watchmen_panels_with_text.JPG}}
+
+    % \assignment{4}{Wordless Novel}{Create a \textit{wordless novel}: a short graphic novel that tells a story (of your own) without including any words.  The novel must use multiple panels on each page (similar to a typical graphic novel or comic book).  It must be at minimum three pages total.  It's dimensions must be 1280 pixels wide and 1920 pixels tall.  It must be completed entirely in Adobe Illustrator.}{Silent novels were important precursors to what we now consider graphic novels and comic books.  Counterintuitively, they came to prominence in the United States in the late 1920's (around the time that silent movies were being replaced by "talkies").  Yet through their limited mode of communication --- and at a distance from their historical context --- they are significant for allowing us to aim directly at the \textit{visual} component of visual storytelling.}{ \textit{Gods' Man} by Lynd Ward was an influential example of a wordless novel.  Its story unfolds quickly, but the stark simplicity of its images evince a high degree of subtlety and consideration.\\\vspace{\baselineskip}\includegraphics[width=0.66\linewidth]{media/lynd_ward__gods_man.jpg}}
+
+    % \assignment{3}{Multi-Image Story}{Illustrate a poem with several sequential images.  The sequence should include exactly five images, each one 1920 by 1080 pixels.  The images should all be in full color.\\\vspace{\baselineskip}Additionally, make sure to have AVID Media Composer installed, tested, and ready by the time this assignment is due (we will be using it for the next assignment).}{While it's possible to represent a narrative in a single image, visual storytelling typically supposes that we communicate across a sequence of images.  It is in this sequence that the particular nature of our work becomes apparent.  Viewers try to perceive continuity across those images, and our job as visual storytellers is to use that continuity to say something important.\\\vspace{\baselineskip}The poem that you choose may be any poem, but the length of it should be appropriate for creating a narrative.  A limerick (which is only five lines long) will be difficult to illustrate since it displays a poverty of text.  An epic poem of great length will ask for more imagery than can be supplied in five images.}{John Flaxman (British sculptor and draughtsman --- AKA illustrator --- 1755 to 1826) \href{https://www.royalacademy.org.uk/art-artists/book/the-iliad-of-homer-engraved-from-the-compositions-of-iohn-flaxman-r-a}{\color{blue}\bfseries illustrated Homer's \textit{Iliad}}.  His illustrations use a highly linear style that make them an important precursor to contemporary comics and illustration.\\\vspace{\baselineskip}\includegraphics[width=\linewidth]{media/flaxman_iliad.jpg}}
+
+    % \assignment{1}{Single Image Story}{Imply an entire story from a single image.}{The ability to tell a story doesn't necessitate the use of multiple images (although generally using several images is more complex).  It does require consideration of the moment to be depicted (the ancient Greeks valued the depiction of the moment of \textit{kairos}).\\\vspace{\baselineskip}For this assignment, create one image that depicts a \textbf{specific} narrative.  Pay close attention to the details that you use, as these will likely go far towards specifying the narrative you are illustrating.}{Greek amphora painting of \textit{Oedipus and the Sphynx}\\\vspace{\baselineskip}\includegraphics[width=0.5\linewidth]{media/oedipous_sphynx.jpg}}
+
+    % \assignment{0}{Software}{Install \href{https://www.adobe.com/products/illustrator.html}{\color{blue}\bfseries Adobe Illustrator} and \href{https://www.avid.com/media-composer}{\color{blue}\bfseries AVID Media Composer First} on a laptop you're able to use at home and in class.}{In this course we'll be addressing visual storytelling in both static (unmoving) and kinetic (moving) form.  In both cases, we will be using powerful, industry-standard software.\\\vspace{\baselineskip}Students are required for the course to subscribe to Adobe Illustrator.  Illustrator is offered through Adobe for \$20.99/month, or an expense of \$84 for the duration fo the course.  Optionally, students who are interested in subscribing to all of Adobe CC's apps (e.g. Photoshop, Premiere Pro) should consider \href{https://www.adobe.com/creativecloud/buy/students.html}{\color{blue}\bfseries Adobe's academic discount} (all apps for \$19.99/month), but note that it requires a one-year commitment.\\\vspace{\baselineskip}AVID Media Composer First is a free version of their industry-standard software, which is commonly used to edit film and video for distribution.\\\vspace{\baselineskip}You may use your college-issued Surface Pro laptop or another (so long as it runs macOS or Windows and is capable of handling the required software).  Students using a college-issued laptop will typically need the \href{https://www.sckans.edu/student-services/information-technology/}{\color{blue}\bfseries SCKans Help Desk} to type in an administrator's password during installation.}{A classic visual story: \textit{Batman \#1}, 1940 (warning: spoilers)\\\vspace{\baselineskip}\includegraphics[width=28\unit]{media/the-batman.jpg}}
+
+\end{document}

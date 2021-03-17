@@ -1,0 +1,164 @@
+% BEGIN
+\documentclass{article}
+
+% UNICODE
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage{oplotsymbl}
+
+% LAYOUT
+\usepackage{calc}
+\newlength{\unit}\setlength{\unit}{9.5625pt} % ONE- SIXTY-FOURTH PAGE WIDTH
+\newlength{\marginheaderl}\setlength{\marginheaderl}{0\unit}
+\newlength{\widthheader}\setlength{\widthheader}{24\unit}
+\newlength{\marginl}\setlength{\marginl}{4\unit}
+\newlength{\marginr}\setlength{\marginr}{4\unit}
+\usepackage[
+    paperwidth=612pt, 
+    paperheight=792pt, 
+    margin=\marginr, 
+    top=8\unit, 
+    left=\marginheaderl + \widthheader + \marginl, 
+    bottom=8\unit, 
+    marginparsep=\marginl, 
+    marginparwidth=\widthheader
+]{geometry}
+
+% PACKAGES
+\usepackage[overlay]{textpos}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fp}
+
+% SUPPRESS UNDERFULL BOX WARNINGS
+% \hbadness=999999
+
+% HYPERLINKS HAVE ODD FORMATTING
+\hypersetup{%
+  colorlinks=false,% HYPERLINKS WERE RED
+  linkbordercolor=red,% THEY HAD A RED BORDER
+  pdfborderstyle={/S/U/W 0}% THEY HAD A BORDER AND 1PT UNDERLINE
+}
+
+% FONTS
+\usepackage{TheanoDidot} % ROMAN
+\usepackage{Chivo} % SANS_SERIF
+\usepackage{inconsolata} % MONOSPACE
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\defaultfontsize}{\fontsize{\unit}{1\unit}\selectfont}
+
+% FORMATTING
+\linespread{1}
+\setlength\parindent{0pt}
+\reversemarginpar
+\pagenumbering{gobble}
+
+% SECTIONS
+\newcommand{\sectionskip}{\vspace{4\unit}}
+\newcommand{\makeHeader}[1]{
+    \leavevmode\marginpar{%
+        \ttfamily
+        \defaultfontsize
+        \textblockcolor{black}%
+        \begin{flushright}\leavevmode\leaders\hbox{\space»}\hfill\kern0pt\uppercase{\space#1}\end{flushright}
+    }%
+}
+
+% DOCUMENT
+\begin{document}
+    \defaultfontsize
+    \raggedright
+
+    \makeHeader{%
+        3D Modeling and Animation 1\\ 
+        \vspace{\baselineskip}
+        CPTR.240\\
+        Fall 2020 | Southwestern College\\
+        Professor Evan Daniel\\
+        Evan.Daniel@SCKans.edu\\
+        \vspace{\baselineskip}
+        Christy 12\\ 
+        TU+TH \space1:10PM- 2:25PM\\
+        Office Hours M-F 12:00PM- 1:00PM\\
+    }%
+    3D modeling is integral to our culture.  We use it to plan buildings (architecture); design products (industrial design); study movement (engineering and mechanics); fabricate goods (manufacturing); and, of course, to build video games and make animations.  Considering how ubiquitous 3D modeling is, it is perhaps no surprise that it stands as a complex and meaningful area of study in itself.
+    
+    \vspace{\baselineskip}This course will examine industry standards and expectations, with a special emphasis on tools that affect rendering.  By the end of the course, students will have proficiency in industry workflows for creating sound 3D models.
+
+    \vspace{\baselineskip}We will address three main topics concurrently: modeling (e.g. shape editing and modifiers), 2D effects (e.g. the camera, texturing), and animation (e.g. keyframing and rigging).  In each of these topics we will examine a variety of use-cases and real-world scenarios.
+
+    \sectionskip\makeHeader{Course Catalog Listing}%
+    CPTR240/Lecture/A - 3D Modeling and Animation 1 | Credits 3.00
+    Probable topics for this course include the 3DMax interface layout, creation tools with primitives and 2D shapes, lofting, and basic modifiers along with scene set up. Simple lighting, camera and materials will enhance student renders and animations. Prerequisite: Consent of instructor. Credit 3 hours.
+
+    \sectionskip\makeHeader{Course Deliverables}%
+    \vspace{-1.75\baselineskip}
+    \begin{itemize}[leftmargin=*]
+        \item Become proficient in 3D modeling, to the point that you can create an executable plan to model anything.
+            \begin{itemize}
+                \item \textit{50 minutes in-class per week.}
+                \item \textit{2 hours 20 minutes out-of-class per week.}
+            \end{itemize}
+        \item Develop your own toolbox of common 3D modeling workflows, including the camera, lighting, textures, skinning, and simulations.
+            \begin{itemize}
+                \item \textit{50 minutes in-class per week.}
+                \item \textit{3 hours 30 minutes out-of-class per week.}
+            \end{itemize}
+        \item Understand the design considerations of creating 3D models, including aesthetic principles and application-specific requirements.
+            \begin{itemize}
+                \item\textit{1 hour 10 minutes in-class per week.}
+            \end{itemize}
+    \end{itemize}
+
+    \sectionskip\makeHeader{Attendance}%
+    Attendance can be in-person or through Zoom.  Attendance will be recorded, but there is no penalty for absences (including "total absence"; neither in-person nor on Zoom).  
+
+    \vspace{\baselineskip}If a student is absent on a day an assignment is due, they are required to set up a meeting with the instructor to be held within one academic week of returning to class.  It is their responsibility to set up this meeting, to be prepared to present their work, and to allot ten minutes to discuss each assignment.  If they do not do so, they will receive a grade of 0 for the assignment.  
+    
+    \sectionskip\makeHeader{Assessment}%
+    Assignments will be assessed through class discourse (the dialogue between instructor, student, and peers).  Assessment criteria will be both the formal outcome as well as the student's demonstrated understanding of the assignment in discussion.
+
+    \vspace{\baselineskip}Each assignment will have a grade recorded between 0 to 1 (e.g. "0.5"; "0.875").  At the end of the semester, these grades will be averaged with a perfect grade of 1 and multiplied by 100 (e.g., if the student's average grade is 0.75, their final grade will be (0.75 + 1.00) / 2 * 100, or 87.5\%).  
+
+    \sectionskip\makeHeader{Ethics}%
+    This course is a space where we acknowledge and value the agency of each of our peers and the diversity of our community.  To be consistent with those values, all communication within the course --- whether in the form of spoken word, submitted assignments, online communication, or any other form --- must allow all other individuals in the course to freely participate.
+    
+    \vspace{\baselineskip}Students whose verbal communication prevents or precludes others from being part of our community or discourse will be asked to leave the course meeting, and can be made subject to further academic discipline. Submitted work that prevents or precludes others from being part of our community or discourse will not be assessed, with no points awarded.  Note that plagiarism is detrimental to our discourse and therefore falls under this category.
+
+    \sectionskip\makeHeader{Southwestern College\\ Builder Community Health Pledge}%
+    Our pledge to shared responsibility and community health: 
+    \begin{itemize}
+        \item I will know and check for COVID-19 symptoms daily
+        \item I will stay in my residence when I have a temperature about 100 degrees Fahrenheit
+        \item I will practice frequent hand-washing
+        \item I will maintain 6-feet of social distance wherever possible
+        \item I will wear a mask in buildings when outside of my residence room or individual office
+        \item I will avoid large social gatherings
+        \item I will limit my personal travel as possible and necessary
+        \item I will follow and abide by directions and guidelines of college and Public Health officials related to the need to identify and contact trace any possible COVID-19 cases or exposures
+    \end{itemize}
+    I understand that the health of everyone in our Builder community is dependent upon shared responsibility, and I will do my part to help protect my community.  I will demonstrate care and respect for others.  This is the Builder Way.  
+    
+    \sectionskip\makeHeader{Southwestern College\\ Disability Services Statement}%
+    Students in this course who have a disability that might prevent them from fully demonstrating their academic abilities should contact Steve Kramer, Disability Services Coordinator as soon as possible to initiate disability verification and discuss accommodations.  Steve Kramer’s office is located in the basement of the Christy Administration building, through the double glass doors.  He can be reached at (620) 229-6307 or at disability.services@sckans.edu. In the event of his absence, Arthur Smith, Disability Services Coordinator for Professional Studies will respond. Please also consult the \href{https://www.sckans.edu/student-services/student-success-and-retention/disability-services/}{\color{blue}\bfseries Disability Services Webpage}.
+    
+    \vspace{\baselineskip}Southwestern College has an office specifically designed to help you, the student, with any issues you may have.  We will guide you to the help you need and have the expertise to make difficult problems more manageable.  You can reach us at Student.Success@sckans.edu, you will see us around campus or you can come by the office in the basement of Christy through the double glass doors.  We are here for your success.
+
+    \sectionskip\makeHeader{Required Resources}%
+    \href{https://blender.org}{\color{blue}\bfseries Blender}\\
+    Blender will be our main 3D modeling and animation software for the course.  Blender is used professionally in the film and game industries, and is also free and open source.   
+
+    \vspace{\baselineskip}\href{https://substance3d.com}{\color{blue}\bfseries Substance Suite} Substance Painter, Substance Designer, Substance Alchemist, and Substance Source (we will use a free educational license)\\
+    This suite of software products is widely used in the film and game industries for creating highly detailed textures/surfaces.  We will be focusing on Substance Painter and Substance Designer, both of which are highly intuitive and expressive.  
+
+    \vspace{\baselineskip}\href{https://pixelogic.com/zbrush}{\color{blue}\bfseries ZBrush Core Mini})\\
+    ZBrush is another industry-standard tool for creating detailed and realistic-looking models.  It is typically used in conjunction with other software (e.g. creating a Blender model, exporting it to ZBrush, and then exporting it back to Blender).  The "Core Mini" version is free.  
+    
+    \sectionskip\makeHeader{Recommended Resources}%
+    \href{https://docs.blender.org}{\color{blue}\bfseries Blender Docs}\\
+    Reading the documentation is a vital part of using any software or programming tool.  The documentation includes info on the scripting API.   
+\end{document}

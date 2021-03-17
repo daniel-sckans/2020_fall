@@ -1,0 +1,154 @@
+% BEGIN
+\documentclass{article}
+
+% UNICODE
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{wasysym}
+\usepackage{oplotsymbl}
+
+% LAYOUT
+\usepackage{calc}
+\newlength{\unit}\setlength{\unit}{9.5625pt} % ONE- SIXTY-FOURTH PAGE WIDTH
+\newlength{\marginheaderl}\setlength{\marginheaderl}{0\unit}
+\newlength{\widthheader}\setlength{\widthheader}{24\unit}
+\newlength{\marginl}\setlength{\marginl}{4\unit}
+\newlength{\marginr}\setlength{\marginr}{4\unit}
+\usepackage[
+    paperwidth=612pt, 
+    paperheight=792pt, 
+    margin=\marginr, 
+    top=8\unit, 
+    left=\marginheaderl + \widthheader + \marginl, 
+    bottom=8\unit, 
+    marginparsep=\marginl, 
+    marginparwidth=\widthheader
+]{geometry}
+
+% PACKAGES
+\usepackage[overlay]{textpos}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{fp}
+
+% SUPPRESS UNDERFULL BOX WARNINGS
+% \hbadness=999999
+
+% HYPERLINKS HAVE ODD FORMATTING
+\hypersetup{%
+  colorlinks=false,% HYPERLINKS WERE RED
+  linkbordercolor=red,% THEY HAD A RED BORDER
+  pdfborderstyle={/S/U/W 0}% THEY HAD A BORDER AND 1PT UNDERLINE
+}
+
+% FONTS
+\usepackage{TheanoDidot} % ROMAN
+\usepackage{Chivo} % SANS_SERIF
+\usepackage{inconsolata} % MONOSPACE
+\renewcommand{\familydefault}{\sfdefault}
+\newcommand{\defaultfontsize}{\fontsize{\unit}{1\unit}\selectfont}
+
+% FORMATTING
+\linespread{1}
+\setlength\parindent{0pt}
+\reversemarginpar
+\pagenumbering{gobble}
+
+% SECTIONS
+\newcommand{\sectionskip}{\vspace{4\unit}}
+\newcommand{\makeHeader}[1]{
+    \leavevmode\marginpar{%
+        \ttfamily
+        \defaultfontsize
+        \textblockcolor{black}%
+        \begin{flushright}\leavevmode\leaders\hbox{\space»}\hfill\kern0pt\uppercase{\space#1}\end{flushright}
+    }%
+}
+
+% DOCUMENT
+\begin{document}
+    \defaultfontsize
+    \raggedright
+
+    \makeHeader{%
+        Visual Storytelling\\ 
+        \vspace{\baselineskip}
+        COMM.312\\
+        Fall 2020 | Southwestern College\\
+        Professor Evan Daniel\\
+        Evan.Daniel@SCKans.edu\\
+        \vspace{\baselineskip}
+        Christy 201\\ 
+        TU+TH 10:50AM-12:05PM\\
+        Office Hours M-F 12:00PM- 1:00PM\\
+    }%
+    Visual storytelling resonates with us in a way few --- if any --- other paradigms do.  Many studies have shown that Americans spend over a third of their waking hours following visual stories through video.  Yet visual storytelling goes deeper than video alone: data visualization often tells a story; fine art is often understood through stories (about the work or the artist); and visual narrative techniques are proven to aid in memorization.
+
+    \vspace{\baselineskip}In this course, we will examine visual storytelling as a sequential digital art.  Using sophisticated digital illustration techniques, we will explore visual storytelling as a means of constructing a narrative through sequences of discrete images.  The psychological and historical nature of our work will be examined.  We will also use video to address issues of motion.  
+
+    \sectionskip\makeHeader{Course Catalog Listing}%
+    COMM312/Lecture/A - Visual Storytelling | Credits 3.00\\
+    This course focuses on visual storytelling with strong production values using state-of-the-art shooting and editing stations. Students will create a project in one of the following areas: Video Essay, Still Photography, Animation (cartoon or stop motion), Original Short Fictional Feature, Short News Documentary, or Video Profile, with a view toward entry in regional or national competitions. Prerequisite: COMM 114 or consent of instructor. Credit 3 hours.
+
+    \sectionskip\makeHeader{Course Deliverables}%
+    \vspace{-1.75\baselineskip}
+    \begin{itemize}[leftmargin=*]
+        \item Fluency in the working methodology of creating narrative stories through sequences of visual images.  
+            \begin{itemize}
+                \item\textit{50 minutes in-class per week}.
+                \item\textit{2 hours 20 minutes out-of-class per week}.  
+            \end{itemize}
+        \item Proficiency in one industry-standard illustration software, and familiarity with one video editing software.
+            \begin{itemize}
+                \item\textit{50 minutes in-class per week}.
+                \item\textit{2 hours 20 minutes out-of-class per week}. 
+            \end{itemize}
+        \item Informed analysis skills pertaining to narrative visual art; familiarity with art history and art theory literature informing narrative visual art discourse; articulation during critiques of narrative visual art.  
+            \begin{itemize}
+                \item\textit{50 minutes in-class per week}.
+                \item\textit{2 hours 20 minutes out-of-class per week}.
+            \end{itemize}
+    \end{itemize}
+    \vspace{-\baselineskip}
+
+    \sectionskip\makeHeader{Attendance}%
+    Attendance can be in-person or through Zoom.  Attendance will be recorded, but there is no penalty for absences (including "total absence"; neither in-person nor on Zoom).  
+
+    \vspace{\baselineskip}If a student is absent on a day an assignment is due, they are required to set up a meeting with the instructor to be held within one academic week of returning to class.  It is their responsibility to set up this meeting, to be prepared to present their work, and to allot ten minutes to discuss each assignment.  If they do not do so, they will receive a grade of 0 for the assignment.  
+    
+    \sectionskip\makeHeader{Assessment}%
+    Assignments will be assessed through class discourse (the dialogue between instructor, student, and peers).  Assessment criteria will be both the formal outcome as well as the student's demonstrated understanding of the assignment in discussion.
+
+    \vspace{\baselineskip}Each assignment will have a grade recorded between 0 to 1 (e.g. "0.5"; "0.875").  At the end of the semester, these grades will be averaged with a perfect grade of 1 and multiplied by 100 (e.g., if the student's average grade is 0.75, their final grade will be (0.75 + 1.00) / 2 * 100, or 87.5\%).  
+
+    \sectionskip\makeHeader{Ethics}%
+    This course is a space where we acknowledge and value the agency of each of our peers and the diversity of our community.  To be consistent with those values, all communication within the course --- whether in the form of spoken word, submitted assignments, online communication, or any other form --- must allow all other individuals in the course to freely participate.
+    
+    \vspace{\baselineskip}Students whose verbal communication prevents or precludes others from being part of our community or discourse will be asked to leave the course meeting, and can be made subject to further academic discipline. Submitted work that prevents or precludes others from being part of our community or discourse will not be assessed, with no points awarded.  Note that plagiarism is detrimental to our discourse and therefore falls under this category.
+
+    \sectionskip\makeHeader{Southwestern College\\ Builder Community Health Pledge}%
+    Our pledge to shared responsibility and community health: 
+    \begin{itemize}
+        \item I will know and check for COVID-19 symptoms daily
+        \item I will stay in my residence when I have a temperature about 100 degrees Fahrenheit
+        \item I will practice frequent hand-washing
+        \item I will maintain 6-feet of social distance wherever possible
+        \item I will wear a mask in buildings when outside of my residence room or individual office
+        \item I will avoid large social gatherings
+        \item I will limit my personal travel as possible and necessary
+        \item I will follow and abide by directions and guidelines of college and Public Health officials related to the need to identify and contact trace any possible COVID-19 cases or exposures
+    \end{itemize}
+    I understand that the health of everyone in our Builder community is dependent upon shared responsibility, and I will do my part to help protect my community.  I will demonstrate care and respect for others.  This is the Builder Way.  
+    
+    \sectionskip\makeHeader{Southwestern College\\ Disability Services Statement}%
+    Students in this course who have a disability that might prevent them from fully demonstrating their academic abilities should contact Steve Kramer, Disability Services Coordinator as soon as possible to initiate disability verification and discuss accommodations.  Steve Kramer’s office is located in the basement of the Christy Administration building, through the double glass doors.  He can be reached at (620) 229-6307 or at disability.services@sckans.edu. In the event of his absence, Arthur Smith, Disability Services Coordinator for Professional Studies will respond. Please also consult the \href{https://www.sckans.edu/student-services/student-success-and-retention/disability-services/}{\color{blue}\bfseries Disability Services Webpage}.
+    
+    \vspace{\baselineskip}Southwestern College has an office specifically designed to help you, the student, with any issues you may have.  We will guide you to the help you need and have the expertise to make difficult problems more manageable.  You can reach us at Student.Success@sckans.edu, you will see us around campus or you can come by the office in the basement of Christy through the double glass doors.  We are here for your success.
+
+    \sectionskip\makeHeader{Required Resources}%
+    \href{https://www.adobe.com/products/illustrator.html}{\color{blue}\bfseries Adobe Illustrator}\\
+    Adobe Illustrator is an industry-standard tool for illustration, and in particular for sequential art, comics, and visual narratives.  It offers sophisticated tools and a highly-considered workflow.  
+\end{document}

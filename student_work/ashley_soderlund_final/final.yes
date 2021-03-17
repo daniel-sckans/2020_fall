@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//Fairy Tale Reading
+
+Once_Upon_A_Time
+    char line[50];
+
+    FILE* in_file = fopen("story", "r");
+
+    while(fgets(line, sizeof line, in_file)!=NULL) {
+        printf("%s", line);
+    }
+
+    Shut
+
+    int n; 
+    printf("Enter 1 for Climb the Tree and 2 for Keep Running\n");
+
+    Read
+
+    if(n == 1){
+        int a;
+        printf("\n There was little hope in running, but maybe if we make it into the trees they will have to wait us out.\n");
+        printf("You call out to everyone to start climbing, only a few of us make it to the top.\n");
+        printf("The faction yells at us to come down or else.\n");
+        printf("Will you decide to climb down and surrrender?\n");
+
+        printf("Enter 1 to Climb Down and 2 to Stay in the Tree\n");
+
+        Read
+
+        if(n == 1){
+            printf("\n You and a few others climb down from the tree.\n");
+            printf("They take you as a prisoner back to their base.\n");
+            printf("Such a shame your story ends here and nobody writes more for you. The End.\n");
+
+            BlankN
+        }
+        if(n == 2){
+            printf("\n You stay in the tree. They aren't able to reach you at all, so they hang out on the ground.\n");
+            printf("They really don't know how to react, so you are stuck in the tree. Maybe our \n");
+            printf("faction will come save you or maybe the opposing faction cuts down the tree. \n");
+            printf("As far as I am concerned, you are left in the tree. The End.\n");
+
+            BlankN
+        }
+    }
+    if(n == 2){
+        int b;
+        printf("\n You book it. Run faster than you ever have before. The whole team seems to be\n");
+        printf("running though the forest like graceful deer with the speed of a cheetah.\n");
+        printf("You are almost there, nothing could sto... CRASH BANG CRACK!\n");
+        printf("A giant war robot is falling out of the sky right infront of your escape.\n");
+        printf("Will you group back up with the others to form a plan or run before the robot can block your path.\n");
+
+        printf("Enter 1 to Regroup with Team and 2 to Run!\n");
+
+        Read
+
+        if(n == 1){
+            printf("\n You call us to you and we stand face to face with this giant robot.\n");
+            printf("We huddle together for a grand plan.\n\n");
+            printf("A DANCE BATTLE!\n");
+            printf("We crush the robot with out sweet moves; he just can't compete. It is our chance to \n");
+            printf("run back to our base with the information in hand. WE DID IT! The End.\n");
+
+            BlankN
+        }
+        if(n == 2){
+            printf("\n You sprint under the robot and make it to safety with the information, but your group\n");
+            printf("AHEM... OUR group perished in the battle without you to help lead. I'm a ghost now, thanks.\n");
+            printf("All for the greater good I guess. Our faction is safe along with you, but at what cost? The End.\n");
+
+            BlankN
+        }
+    }
+
+The_End
+Close_Book
